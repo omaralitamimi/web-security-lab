@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="مختبر تفاعلي آمن لتعلّم ثغرات تطبيقات الويب باستخدام بيانات وهمية ومحاكاة محلية.">
+  <meta name="theme-color" content="#08090d">
+  <title>مختبر اختراق تطبيقات الويب</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="scanline" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="العودة إلى بداية المختبر">
+      <span class="brand-mark">&gt;_</span>
+      <span><b>WEB//RANGE</b><small>AUTHORIZED TRAINING NODE</small></span>
+    </a>
+    <div class="system-status"><span class="pulse"></span> المحاكي متصل <b id="clock">00:00:00</b></div>
+    <button class="ghost-btn" id="resetAllBtn" type="button">إعادة ضبط الكل</button>
+  </header>
+
+  <main class="shell">
+    <aside class="sidebar" aria-label="مختبرات الثغرات">
+      <div class="sidebar-head">
+        <span>قائمة الأهداف</span>
+        <strong id="progressText">0 / 10</strong>
+      </div>
+      <div class="progress-track" aria-label="نسبة إكمال المختبرات"><span id="progressBar"></span></div>
+      <nav id="labNav"></nav>
+      <div class="scope-note">
+        <b>نطاق آمن</b>
+        <span>كل الطلبات والبيانات داخل محاكي المتصفح ولا تُرسل لأي خادم خارجي.</span>
+      </div>
+    </aside>
+
+    <section class="workspace">
+      <div class="workspace-head">
+        <div>
+          <p class="eyebrow" id="moduleCode">MODULE 01 // SQL INJECTION</p>
+          <h1 id="labTitle">حقن قواعد البيانات</h1>
+          <p class="lead" id="labBrief"></p>
+        </div>
+        <div class="risk-card">
+          <span>RISK</span><b id="riskValue">HIGH</b><small id="cweValue">CWE-89</small>
+        </div>
+      </div>
+
+      <div class="intel-grid">
+        <article class="intel-card"><span>الهدف الافتراضي</span><code id="targetValue"></code></article>
+        <article class="intel-card"><span>المطلوب</span><b id="objectiveValue"></b></article>
+        <article class="intel-card"><span>FLAG</span><b id="flagStatus">غير مكتشف</b></article>
+      </div>
+
+      <section class="lab-grid">
+        <article class="panel control-panel">
+          <div class="panel-title"><span>01</span><h2>لوحة الاستغلال</h2><em>INPUT VECTOR</em></div>
+          <div id="labForm" class="lab-form"></div>
+          <div class="actions">
+            <button class="execute-btn" id="executeBtn" type="button"><span>▶</span> تنفيذ الطلب</button>
+            <button class="ghost-btn" id="hintBtn" type="button">تلميح</button>
+            <button class="ghost-btn" id="resetLabBtn" type="button">Reset</button>
+          </div>
+          <p id="hintBox" class="hint-box" hidden></p>
+        </article>
+
+        <article class="panel terminal-panel">
+          <div class="panel-title"><span>02</span><h2>الطرفية الافتراضية</h2><em>REQUEST / RESPONSE</em></div>
+          <div class="terminal" id="terminal" role="log" aria-live="polite">
+            <p class="muted">[system] اختر قيمة ثم نفّذ الطلب.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel mission-panel">
+        <div class="panel-title"><span>03</span><h2>مهمة الطالب</h2><em>CAPTURE THE FLAG</em></div>
+        <div class="mission-body">
+          <ol id="missionSteps"></ol>
+          <form id="flagForm" class="flag-form">
+            <label for="flagInput">أدخل الـ Flag الذي استخرجته</label>
+            <div><input id="flagInput" autocomplete="off" placeholder="FLAG{...}"><button type="submit">تحقق</button></div>
+            <p id="flagFeedback" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js"></script>
+</body>
+</html>
